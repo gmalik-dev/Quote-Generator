@@ -10,7 +10,7 @@ let apiQuotes = [];
 
 
 function newQuote(){
-    loading();
+    showLoadingSpinner();
     const quote = apiQuotes[Math.floor(Math.random() * apiQuotes.length)];
    
     quote.author ? author.textContent = quote.author : "Unknown";
@@ -23,30 +23,30 @@ function newQuote(){
     }
     console.log(quote);
     quoteText.textContent= quote.text;
-    complete();
+    removeLoadingSpinner();
 }
 
 newQuoteButton.click()
 
  async function getQuotes(){
-    loading();
+    showLoadingSpinner();
     const apiUrl = "https://jacintodesign.github.io/quotes-api/data/quotes.json";
     try {
         const response = await fetch(apiUrl);
         apiQuotes = await response.json();
-        complete();
+        removeLoadingSpinner();
     }
     catch(error){
         console.log(error);
     }
 }
 
-function complete() {
+function removeLoadingSpinner() {
     loader.hidden = true;
     quoteContainer.hidden = false;
 }
 
-function loading(){
+function showLoadingSpinner(){
     loader.hidden = false;
     quoteContainer.hidden = true;
 }
