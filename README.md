@@ -21,3 +21,5 @@ How It Works
 When the page loads, the JavaScript code fetches a list of quotes from an API.
 The list of quotes is stored in an array, apiQuotes.
 When the "New Quote" button is clicked, the app selects a random quote from apiQuotes and displays it on the screen.
+
+[Live Demo](https://gmalik-dev.github.io/Quote-Generator)
